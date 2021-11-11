@@ -1,0 +1,23 @@
+<button class="btn zui-button" (click)="addNode()">
+  Add Node
+</button>
+<div class="chart-wrapper">
+  <div class="chart-container" #wrapper>
+    <ng-container *ngFor="let node of nodes; let i = index">
+      <div
+        class="box"
+        [id]="node.id"
+        [ngClass]="{'target': node.type === 'target'}"
+        [style.top.px]="node?.uiPosition?.top || 20"
+        [style.left.px]="node?.uiPosition?.left || 20"
+      >
+        <div class="node">
+          {{ 'Node' + (i + 1) }}
+          <div class="endpoint-circle" [id]="'endpoint_' + node.id">
+            <div class="endpoint-caret"></div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
